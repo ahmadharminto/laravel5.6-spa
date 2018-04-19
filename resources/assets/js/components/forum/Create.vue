@@ -1,0 +1,41 @@
+<template>
+    <v-container>
+        <v-form @submit.prevent="create">
+            <v-text-field label="Title" v-model="form.title" type="text" required></v-text-field>
+            <v-select :items="categories" item-text="name" item-value="id" v-model="form.category_id" label="Category" autocomplete></v-select>
+            
+            <v-btn color="green" type="submit">Submit</v-btn>
+        </v-form>
+    </v-container>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            form : {
+                title : null,
+                category_id : null
+            },
+            categories: []
+        }
+    },
+    methods: {
+        create() {
+
+        },
+        customFilter() {
+            
+        }
+    },
+    created() {
+        axios.get('/api/category')
+        .then(res => this.categories = res.data.data)
+        .catch(error => console.log(error.response.data));
+    }
+}
+</script>
+
+<style>
+
+</style>
