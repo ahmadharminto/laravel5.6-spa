@@ -87737,7 +87737,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.patch('/api/question/' + this.form.slug, this.form).then(function (res) {
                 return _this.cancel();
-            }).error(function (error) {
+            }).catch(function (error) {
                 return console.log(error.response);
             });
         },

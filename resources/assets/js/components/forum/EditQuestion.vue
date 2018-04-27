@@ -32,7 +32,7 @@ export default {
         update() {
             axios.patch(`/api/question/${this.form.slug}`, this.form)
             .then(res => this.cancel())
-            .error(error => console.log(error.response))
+            .catch(error => console.log(error.response))
         },
         cancel() {
             EventBus.$emit('cancelEditing');
